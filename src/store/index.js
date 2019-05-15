@@ -3,10 +3,12 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 import moduleA from './moduleA';
+import globalMenu from './globalMenu';
 
 var store=new Vuex.Store({
 	modules:{
-		a:moduleA
+		a:moduleA,
+		globalMenu:globalMenu
 	},
 	state:{
 		aa:'lllllllll',

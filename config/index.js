@@ -10,19 +10,33 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
+    proxyTable: {//可同时代理多个端口
     	'/api': {
             target: 'http://192.168.20.55:9999',//后端接口地址
             changeOrigin: true,//是否允许跨越
             pathRewrite: {
                 '^/api': 'http://192.168.20.55:9999',//重写,
             }
+       },
+       '/lhh': {
+            target: 'http://192.168.20.55:9998',//后端接口地址
+            changeOrigin: true,//是否允许跨越
+            pathRewrite: {
+                '^/lhh': 'http://192.168.20.55:9998',//重写,
+            }
+       },
+       '/hua': {
+            target: 'http://192.168.20.55:9997',//后端接口地址
+            changeOrigin: true,//是否允许跨越
+            pathRewrite: {
+                '^/hua': 'http://192.168.20.55:9997',//重写,
+            }
         }
     },
 
     // Various Dev Server settings
 //  host: 'localhost', // can be overwritten by process.env.HOST
-    host: 'localhost', // can be overwritten by process.env.HOST
+    host: '192.168.20.55', // can be overwritten by process.env.HOST
     port: 8001, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,

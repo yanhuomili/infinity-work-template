@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1>home</h1>
+    <input type="text" placeholder="输入你想要的空间" @click="toSearch"/>
     <ul>
     	<li>{{this.$store.state.aa}}</li>
     	<li>{{this.$store.state.price}}</li>
@@ -23,6 +24,9 @@
     <button @click="dispatch">dispatch</button>
     <button @click="addF">add</button>
     <button @click="reduce(100)">reduce</button>
+    
+    
+    
   </div>
 </template>
 
@@ -70,11 +74,14 @@ export default {
 //		this.todo();
 //		this.test();  	
 //		this.instance();
-		this.moniVue();
+//		this.moniVue();
 		console.log(process.env.NODE_ENV,'mounted');
 		
   },
   methods:{
+  	toSearch(){
+  		this.$router.push({path:'/search'});
+  	},
   	// 从APP获取openToken
     getOpenTokenFromApp() {
       JSBridge.Common.Caller_Common_Base_getOpenToken('', openToken => {
@@ -107,7 +114,7 @@ export default {
 //			});
 			
 			
-			axios.all([axios.post('/api/test1'), axios.post('/api/test2'), axios.post('/api/test3')])
+			axios.all([axios.post('/api/test1'), axios.post('/lhh/test2'), axios.post('/hua/test3')])
 		  .then(axios.spread(function (a, b, c) {
 		  	console.log(a)
 		  	console.log(b)
@@ -204,17 +211,19 @@ export default {
 		}
 		ul{
 			width: 100%;
-			font-size: .12rem;
+			font-size: .24rem;
 			background: #f1f1f1;
 		}
 		li{
 			padding: .1rem;
 		}
-		
 		p{
 			margin-top: 12px;
 			font-size: 12px;
 			color: #f60;
+		}
+		button{
+			font-size: .24rem;
 		}
 	}
 	
